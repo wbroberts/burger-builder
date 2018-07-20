@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 
 import styles from './BurgerIngredient.css';
 
+// Capitalizes the ingredient for the css
+import capitalize from '../../../functions/capitalize';
+
 class BurgerIngredient extends Component {
   render() {
-    return <div className={styles[this.props.ingredient]} />;
+    return <div className={styles[capitalize(this.props.ingredient)]} />;
   }
 }
 

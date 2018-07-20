@@ -3,9 +3,6 @@ import React from 'react';
 import styles from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
-// Simple function that capitalizes the first letter of a word
-import capitalize from '../../functions/capitalize';
-
 const burger = props => {
   // Loop through the keys in the ingredients Object (from props)
   let allIngredients = Object.keys(props.ingredients)
@@ -14,9 +11,7 @@ const burger = props => {
       // for the next map function call
       return [...Array(props.ingredients[ingr])].map((_, i) => {
         // This returns the correct amount of the ingredient that is wanted
-        return (
-          <BurgerIngredient ingredient={capitalize(ingr)} key={ingr + i} />
-        );
+        return <BurgerIngredient ingredient={ingr} key={ingr + i} />;
       });
     })
     .reduce((arr, el) => {

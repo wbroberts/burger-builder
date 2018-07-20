@@ -1,0 +1,23 @@
+.BuildControl {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.BuildControl button {
+  border: 1px solid #aa6817;
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  margin: 0 5px;
+  outline: none;
+  padding: 5px;
+  width: 80px;
+}
+
+.Label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: normal;
+}
