@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Burger from '../../components/Burger/Burger';
-import BuildControls from '../../components/Burger/BuildControls/BuildControls';
+import BuildControls from '../../components/BuildControls/BuildControls';
 
 const ingredientPrices = {
   tomato: 0.25,
@@ -64,12 +64,20 @@ class BurgerBuilder extends Component {
   };
 
   render() {
+    const disabledIngredients = { ...this.state.ingredients };
+    // Convert each key to true or false
+    for (let key in disabledIngredients) {
+      disabledIngredients[key] = disabledIngredients[key] === 0;
+    }
+
     return (
       <React.Fragment>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
           addIngredient={this.addIngredientHandle}
           removeIngredient={this.removeIngredientHandle}
+          disabled={disabledIngredients}
+          price={this.state.burgerPrice}
         />
       </React.Fragment>
     );
