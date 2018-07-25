@@ -1,10 +1,22 @@
 .BuildControls {
   align-items: center;
-  background: #cf8f2e;
   box-shadow: 0 2px 1px #ccc;
   display: flex;
   flex-direction: column;
   margin: auto;
   padding: 10px;
   width: 100%;
+}
+
+.OrderButton {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.OrderButton:hover {
+  background: lightblue;
 }

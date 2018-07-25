@@ -20,7 +20,8 @@ class BurgerBuilder extends Component {
       cheese: 0,
       meat: 0
     },
-    burgerPrice: 4
+    burgerPrice: 4,
+    canOrder: false
   };
 
   addIngredientHandle = ingredient => {
@@ -39,15 +40,15 @@ class BurgerBuilder extends Component {
       ingredients: updatedIngredients,
       burgerPrice: updatedPrice
     });
+
+    this.updateOrderState(updatedIngredients);
   };
 
   removeIngredientHandle = ingredient => {
-    // Update the ingredient state
     const oldCount = this.state.ingredients[ingredient];
-
     // Exit out of function if ingredient is already at 0
     if (oldCount === 0) return;
-
+    // Update the ingredient state
     const updatedCount = oldCount - 1;
     const updatedIngredients = { ...this.state.ingredients };
     updatedIngredients[ingredient] = updatedCount;
@@ -61,11 +62,21 @@ class BurgerBuilder extends Component {
       ingredients: updatedIngredients,
       burgerPrice: updatedPrice
     });
+
+    this.updateOrderState(updatedIngredients);
+  };
+
+  updateOrderState = obj => {
+    let canOrder;
+    const total = Object.values(obj).reduce((sum, next) => sum + next);
+
+    total >= 1 ? (canOrder = true) : (canOrder = false);
+    this.setState({ canOrder });
   };
 
   render() {
     const disabledIngredients = { ...this.state.ingredients };
-    // Convert each key to true or false
+    // Convert each key to true or false for disabling the removeIngredient button
     for (let key in disabledIngredients) {
       disabledIngredients[key] = disabledIngredients[key] === 0;
     }
@@ -78,6 +89,7 @@ class BurgerBuilder extends Component {
           removeIngredient={this.removeIngredientHandle}
           disabled={disabledIngredients}
           price={this.state.burgerPrice}
+          canOrder={this.state.canOrder}
         />
       </React.Fragment>
     );

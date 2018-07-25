@@ -3,13 +3,16 @@
   display: flex;
   justify-content: space-between;
   margin: 5px 0;
+  width: 400px;
 }
 
 .BuildControl button {
   border: 1px solid #aa6817;
   cursor: pointer;
   display: block;
+  flex-basis: 33%;
   font-family: inherit;
+  font-size: inherit;
   margin: 0 5px;
   outline: none;
   padding: 5px;
@@ -20,4 +23,7 @@
   font-family: 'Open Sans', sans-serif;
   font-size: 1.4rem;
   font-weight: normal;
+  flex-basis: 33%;
+  text-align: center;
+  width: 80px;
 }

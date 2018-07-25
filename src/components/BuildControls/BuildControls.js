@@ -11,9 +11,10 @@ const controls = [
   { label: 'Meat', ingredient: 'meat' }
 ];
 
+// Renders buttons for each ingredient in controls array
 const buildControls = props => {
   return (
-    <div className={styles.buildControls}>
+    <div className={styles.BuildControls}>
       <p>
         Price: <strong>${props.price.toFixed(2)}</strong>
       </p>
@@ -29,6 +30,10 @@ const buildControls = props => {
           />
         );
       })}
+
+      <button className={styles.OrderButton} disabled={!props.canOrder}>
+        Order Now
+      </button>
     </div>
   );
 };
