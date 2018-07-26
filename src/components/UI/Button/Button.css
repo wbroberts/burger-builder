@@ -1,9 +1,13 @@
-button {
+.Button {
   border: none;
+  cursor: pointer;
+  margin-right: 10px;
   padding: 10px;
+  text-transform: uppercase;
+  transition: background 300ms;
 }
 
-button:hover {
+.Button:hover {
   background: lightblue;
 }
 

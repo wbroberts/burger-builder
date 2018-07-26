@@ -7,7 +7,7 @@ const button = props => {
   return (
     <button
       onClick={props.clicked}
-      className={styles[capitalize(props.buttonType)]}
+      className={`${styles.Button} ${styles[capitalize(props.buttonType)]}`}
     >
       {props.children}
     </button>

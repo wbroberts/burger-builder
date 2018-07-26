@@ -1,6 +1,7 @@
 import React from 'react';
 
 import capitalize from '../../../functions/capitalize';
+import Button from '../../UI/Button/Button';
 
 const orderSummary = props => {
   const ingredientSummary = Object.keys(props.ingredients);
@@ -9,6 +10,7 @@ const orderSummary = props => {
     <React.Fragment>
       <h3>Your Order</h3>
       <p>A delicious burger with:</p>
+
       <ul>
         {ingredientSummary.map((key, i) => {
           return (
@@ -18,9 +20,18 @@ const orderSummary = props => {
           );
         })}
       </ul>
+
+      <p>
+        Total: <strong>${props.price.toFixed(2)}</strong>
+      </p>
+
       <p>Continue to checkout?</p>
-      <button>Cancel</button>
-      <button>Continue</button>
+      <Button buttonType={'cancel'} clicked={props.cancelOrder}>
+        Cancel
+      </Button>
+      <Button buttonType={'continue'} clicked={props.continueOrder}>
+        Place Order
+      </Button>
     </React.Fragment>
   );
 };

@@ -85,6 +85,10 @@ class BurgerBuilder extends Component {
     this.setState({ ordering: false });
   };
 
+  continueOrderHandler = () => {
+    alert('You placed an order');
+  };
+
   render() {
     const disabledIngredients = { ...this.state.ingredients };
     // Convert each key to true or false for disabling the removeIngredient button
@@ -95,7 +99,12 @@ class BurgerBuilder extends Component {
     return (
       <React.Fragment>
         <Modal show={this.state.ordering} closeModal={this.cancelOrderHandler}>
-          <OrderSummary ingredients={this.state.ingredients} />
+          <OrderSummary
+            ingredients={this.state.ingredients}
+            price={this.state.burgerPrice}
+            cancelOrder={this.cancelOrderHandler}
+            continueOrder={this.continueOrderHandler}
+          />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
