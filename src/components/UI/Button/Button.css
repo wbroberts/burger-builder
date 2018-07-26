@@ -1,0 +1,16 @@
+button {
+  border: none;
+  padding: 10px;
+}
+
+button:hover {
+  background: lightblue;
+}
+
+.Continue {
+  background: lightgreen;
+}
+
+.Cancel {
+  background: lightcoral;
+}
