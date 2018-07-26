@@ -1,8 +1,11 @@
 .Burger {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   font-size: 1.2rem;
   font-weight: 600;
   height: 250px;
-  margin: 0 auto;
+  justify-content: center;
   overflow: scroll;
   text-align: center;
   width: 100%;
@@ -19,12 +22,5 @@
   .Burger {
     height: 460px;
     width: 450px;
-  }
-}
-
-@media (min-width: 1000px) and (min-height: 700px) {
-  .Burger {
-    height: 600px;
-    width: 700px;
   }
 }

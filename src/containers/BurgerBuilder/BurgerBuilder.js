@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
 const ingredientPrices = {
   tomato: 0.25,
@@ -21,7 +23,8 @@ class BurgerBuilder extends Component {
       meat: 0
     },
     burgerPrice: 4,
-    canOrder: false
+    canOrder: false,
+    ordering: false
   };
 
   addIngredientHandle = ingredient => {
@@ -74,6 +77,14 @@ class BurgerBuilder extends Component {
     this.setState({ canOrder });
   };
 
+  orderHandler = () => {
+    this.setState({ ordering: true });
+  };
+
+  cancelOrderHandler = () => {
+    this.setState({ ordering: false });
+  };
+
   render() {
     const disabledIngredients = { ...this.state.ingredients };
     // Convert each key to true or false for disabling the removeIngredient button
@@ -83,6 +94,9 @@ class BurgerBuilder extends Component {
 
     return (
       <React.Fragment>
+        <Modal show={this.state.ordering} closeModal={this.cancelOrderHandler}>
+          <OrderSummary ingredients={this.state.ingredients} />
+        </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
           addIngredient={this.addIngredientHandle}
@@ -90,6 +104,7 @@ class BurgerBuilder extends Component {
           disabled={disabledIngredients}
           price={this.state.burgerPrice}
           canOrder={this.state.canOrder}
+          ordering={this.orderHandler}
         />
       </React.Fragment>
     );
