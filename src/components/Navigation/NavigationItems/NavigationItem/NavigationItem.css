@@ -1,19 +1,37 @@
 .NavigationItem {
   align-items: center;
-  display: flex;
-  height: 100%;
+  display: block;
+  width: 100%;
 }
 
 .NavigationItem a {
-  border-bottom: 4px solid transparent;
   display: block;
-  height: 100%;
   padding: 16px 10px;
   text-decoration: none;
+  width: 100%;
 }
 
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active {
-  border-bottom: 4px solid lightcoral;
+}
+
+@media (min-width: 500px) {
+  .NavigationItem {
+    display: flex;
+    height: 100%;
+    width: auto;
+  }
+
+  .NavigationItem a {
+    border-bottom: 4px solid transparent;
+    height: 100%;
+    width: auto;
+  }
+
+  .NavigationItem a:hover,
+  .NavigationItem a:active,
+  .NavigationItem a.active {
+    border-bottom: 4px solid lightcoral;
+  }
 }
