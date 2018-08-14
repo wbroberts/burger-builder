@@ -14,6 +14,7 @@
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active {
+  color: lightcoral;
 }
 
 @media (min-width: 500px) {

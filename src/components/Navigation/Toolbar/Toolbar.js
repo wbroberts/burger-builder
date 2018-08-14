@@ -3,15 +3,18 @@ import React from 'react';
 import styles from './Toolbar.css';
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
+import MenuIcon from '../../UI/MenuIcon/MenuIcon';
 
 const toolbar = props => {
   return (
     <header className={styles.Toolbar}>
-      <div>Menu</div>
+      <MenuIcon clicked={props.openSideDrawer} />
       <div className={styles.Logo}>
         <Logo />
       </div>
-      <NavigationItems />
+      <nav className={styles.DesktopOnly}>
+        <NavigationItems />
+      </nav>
     </header>
   );
 };
