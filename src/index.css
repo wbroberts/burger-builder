@@ -3,6 +3,7 @@
 }
 
 body {
+  color: rgba(65, 65, 75, 1);
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
