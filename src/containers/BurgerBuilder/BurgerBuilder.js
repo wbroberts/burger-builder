@@ -5,6 +5,7 @@ import BuildControls from '../../components/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import errorHandler from '../../hoc/ErrorHandler/ErrorHandler';
 
 import axios from '../../axios-order';
 
@@ -99,7 +100,7 @@ class BurgerBuilder extends Component {
     };
 
     axios
-      .post('/orders.json', order)
+      .post('/orders', order)
       .then(res => {
         // Stop spinner
         this.setState({ loading: false, ordering: false });
@@ -152,4 +153,4 @@ class BurgerBuilder extends Component {
   }
 }
 
-export default BurgerBuilder;
+export default errorHandler(BurgerBuilder, axios);
