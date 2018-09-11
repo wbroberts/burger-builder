@@ -20,7 +20,7 @@ const ingredientPrices = {
 class BurgerBuilder extends Component {
   state = {
     ingredients: null,
-    burgerPrice: 4,
+    burgerPrice: 5,
     canOrder: false,
     ordering: false,
     loading: false
@@ -126,10 +126,6 @@ class BurgerBuilder extends Component {
     // Can be a spinner or the actual order summary
     let orderSummary = null;
 
-    if (this.state.loading) {
-      orderSummary = <Spinner />;
-    }
-
     // Make spinner for when ingredients are loading
     let burger = <Spinner />;
 
@@ -157,6 +153,10 @@ class BurgerBuilder extends Component {
           continueOrder={this.continueOrderHandler}
         />
       );
+
+      if (this.state.loading) {
+        orderSummary = <Spinner />;
+      }
     }
 
     return (

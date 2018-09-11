@@ -4,8 +4,13 @@ import styles from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 const burger = props => {
+  // Pulls keys from ingredients and resets them in order for correct
+  // display of order ingredients. (DB sends data in alphabetical order.)
+  const { tomato, lettuce, cheese, bacon, meat } = props.ingredients;
+  const ingredients = { tomato, lettuce, bacon, cheese, meat };
+
   // Loop through the keys in the ingredients Object (from props)
-  let allIngredients = Object.keys(props.ingredients)
+  let allIngredients = Object.keys(ingredients)
     .map(ingr => {
       // Create a new array that is the length of the amount of each ingredient
       // for the next map function call
